@@ -1,6 +1,13 @@
 {
   "parser": "@typescript-eslint/parser",
-  "extends": ["plugin:@typescript-eslint/recommended", "prettier/@typescript-eslint", "plugin:prettier/recommended", "react-app"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "react-app"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "rules": {
     "prettier/prettier": "error",
     "eqeqeq": "error",
@@ -14,11 +21,12 @@
     ],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/anchor-is-valid": "off",
-    "import/no-default-export": "error",
     "require-await": "error",
     "no-async-promise-executor": "error",
     "@typescript-eslint/no-floating-promises": "error",
-    "@typescript-eslint/no-non-null-assertion": ["error"]
+    "@typescript-eslint/no-non-null-assertion": [
+      "error"
+    ]
   },
   "env": {
     "jest": true,
