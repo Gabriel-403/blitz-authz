@@ -2,9 +2,7 @@
   "name": "blitz-authz",
   "version": "0.0.1",
   "description": "A RBAC & ABAC hybrid authorization middleware for Blitz.js",
-  "main": "lib/cjs/index.js",
-  "typings": "lib/cjs/index.d.ts",
-  "module": "lib/esm/index.js",
+  "main": "index.ts",
   "scripts": {
     "prepack": "run-s lint test build",
     "postpack": "run-s clean",
