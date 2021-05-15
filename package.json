@@ -16,13 +16,13 @@
     "coverage": "jest --coverage"
   },
   "dependencies": {
-    "@types/jscodeshift": "0.11.0",
-    "casbin": "5.6.1",
-    "jscodeshift": "0.11.0",
-    "typescript": "4.2.4"
+    "casbin": "5.6.1"
   },
   "peerDependencies": {
-    "blitz": "0.33.1"
+    "blitz": "0.33.1",
+    "@types/jscodeshift": "0.11.0",
+    "jscodeshift": "0.11.0",
+    "typescript": "4.2.4"
   },
   "devDependencies": {
     "@babel/core": "7.13.15",

@@ -28,7 +28,6 @@ const receipt = RecipeBuilder()
     templatePath: join(__dirname, "templates", "casbin_files"),
     templateValues: {},
   })
-
   .build()
 
 export default receipt
