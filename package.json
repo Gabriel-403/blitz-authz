@@ -4,15 +4,9 @@
   "description": "A RBAC & ABAC hybrid authorization middleware for Blitz.js",
   "main": "index.ts",
   "scripts": {
-    "prepack": "run-s lint test build",
-    "postpack": "run-s clean",
-    "build": "run-s clean && run-p build:*",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.esm.json",
     "test": "jest",
     "lint": "eslint . --ext .js,.ts",
     "fmt": "eslint . --ext .js,.ts --fix",
-    "clean": "rimraf lib",
     "coverage": "jest --coverage"
   },
   "dependencies": {
