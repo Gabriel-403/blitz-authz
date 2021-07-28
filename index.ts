@@ -13,19 +13,19 @@ const receipt = RecipeBuilder()
     packages: [{ name: "casbin", version: "latest" }],
   })
   .addNewFilesStep({
-    stepId: "addEnforcer",
-    stepName: "Add Enforcer ",
-    explanation: `We'll add a query API endpoint for enforcer.`,
-    targetDirectory: "app/queries/getEnforcer.ts",
-    templatePath: join(__dirname, "templates", "getEnforcer.ts"),
+    stepId: "addQueryEndpoint",
+    stepName: "Add query endpoint for Casbin Enforcer",
+    explanation: `We'll setup a query API endpoint to work with enforcer.`,
+    targetDirectory: "app/casbin/queries/enforce.ts",
+    templatePath: join(__dirname, "templates", "queries", "enforce.ts"),
     templateValues: {},
   })
   .addNewFilesStep({
-    stepId: "addCasbinModelandPolicies",
-    stepName: "Add casbin model and policies files.",
-    explanation: `Next, we will add an example casbin model and files. It shows the basic usage of casbin ACL model.`,
-    targetDirectory: "app/casbin/",
-    templatePath: join(__dirname, "templates", "casbin_files"),
+    stepId: "addCasbinConfigurationFiles",
+    stepName: "Add configure files of Casbin",
+    explanation: `We'll add configuration files for Casbin, which describe the permission model and policies.`,
+    targetDirectory: "app/casbin/cfg/",
+    templatePath: join(__dirname, "templates", "files"),
     templateValues: {},
   })
   .build()
