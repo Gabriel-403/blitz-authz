@@ -1,23 +1,14 @@
 import { Enforcer, newEnforcer } from "casbin"
-import { Middleware ,Ctx } from "blitz"
-const BasicAuthorizer = require('./BasicAuthorizer')
 
-export default async function Authorizer(options, ctx: Ctx) {
-  // Properly typed
-    try {
-      const {newEnforcer, authorizer} = options
-      const enforcer = await newEnforcer()
-      if (!(enforcer instanceof Enforcer)) {
-        throw new Error('Invalid enforcer')
-      }
-      const authzorizer = authorizer ? authorizer(ctx, enforcer) : new BasicAuthorizer(ctx, enforcer)
-      if (!(authzorizer instanceof BasicAuthorizer)) {
-        throw new Error('Please extends BasicAuthorizer class')
-      }
-      if (!await authzorizer.checkPermission()) {
-        return 403;
-      }
-    } catch (e) {
-      throw e
-  }
+type CasbinIsAuthorizedArgs = {
+  ctx: any
+  args: [roleOrRoles?: string | string[]]
+}
+
+export async function casbinIsAuthorized({ ctx, args }: CasbinIsAuthorizedArgs) {
+  const enforcer = await newEnforcer('examples/authz_model.conf', 'examples/authz_policy.csv')
+  const user = ctx.session.user
+  const path = ctx.session.path
+  const method = ctx.session.method
+  return  await enforcer.enforce(user, path, method)
 }
